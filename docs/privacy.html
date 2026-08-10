@@ -122,10 +122,10 @@
 <p class="crumb">G45C/D3V · documento legal</p>
 
 <h1>Política de Privacidad</h1>
-<p class="updated">Última actualización: 12 de junio de 2026</p>
+<p class="updated">Última actualización: 9 de agosto de 2026</p>
 
 <div class="summary">
-  <p><strong>luka.</strong> es una app de conversión de divisas. <strong>No recolectamos, almacenamos ni transmitimos información personal.</strong> Toda la actividad ocurre en tu dispositivo.</p>
+  <p><strong>luka.</strong> es una app de conversión de divisas e indicadores económicos. <strong>No recolectamos, almacenamos ni transmitimos información personal.</strong> Toda la actividad ocurre en tu dispositivo: no hay cuentas, ni servidores propios, ni analítica, ni publicidad.</p>
 </div>
 
 <h2>Aviso legal</h2>
@@ -142,28 +142,60 @@
 </ul>
 
 <h2>Permiso de ubicación (opcional)</h2>
-<p>La app puede pedirte permiso de ubicación <strong>aproximada</strong> con un único propósito: <strong>sugerirte la divisa local automáticamente</strong> (por ejemplo, agregar CLP a tu lista si estás en Chile). Esta detección ocurre <em>en tu dispositivo</em> — la coordenada nunca se envía a los servidores de luka. ni se almacena.</p>
+<p>La app puede pedirte permiso de ubicación <strong>aproximada</strong> con un único propósito: <strong>sugerirte la divisa local automáticamente</strong> (por ejemplo, agregar CLP a tu lista si estás en Chile).</p>
+<p>Para traducir la coordenada a un país, la app usa el <strong>servicio de geocodificación del sistema operativo</strong> (<code>android.location.Geocoder</code>). En un teléfono con servicios de Google, ese servicio es de Google y la coordenada se resuelve a través de él. <strong>Nosotros no la enviamos a ningún servidor propio, no la guardamos y no la asociamos a ti</strong>: la usamos una vez, en memoria, para saber el país y sugerirte su divisa. Si el dispositivo no tiene ese servicio disponible, la app no hace la consulta.</p>
 <p>Como alternativa sin permiso, la app puede deducir el <strong>país</strong> (solo el país, nunca tu posición) a partir del código de país de la red móvil a la que está conectado tu teléfono. Esto también ocurre íntegramente en el dispositivo.</p>
 <p>Si rechazas el permiso, la app funciona igual; solo deberás agregar manualmente tu divisa.</p>
 
 <h2>Datos que se almacenan localmente</h2>
 <p>Para que la app recuerde tus preferencias entre sesiones, guardamos en <strong>tu dispositivo</strong>:</p>
 <ul>
-  <li>Tu divisa base.</li>
-  <li>Tu lista de divisas seleccionadas.</li>
-  <li>Tu tema (claro/oscuro/sistema).</li>
-  <li>Tu preferencia de decimales.</li>
-  <li>Las últimas tasas de cambio descargadas (para uso offline).</li>
+  <li>Tu divisa base y tu lista de divisas seleccionadas.</li>
+  <li>Tu tema (claro/oscuro/sistema) y tu preferencia de decimales.</li>
+  <li>Si tienes activada la sugerencia de divisa por ubicación.</li>
+  <li>El último monto que escribiste, para que siga ahí al volver a abrir la app.</li>
+  <li>Los últimos datos descargados, para que la app funcione sin conexión: tasas de cambio, precios de criptomonedas y los calendarios de indicadores económicos ya publicados.</li>
+  <li>Marcas de uso propias de la app: cuándo fue la última sincronización con cada fuente, qué novedades ya viste y qué sugerencias de divisa descartaste.</li>
 </ul>
-<p>Estos datos nunca salen de tu teléfono. Si desinstalas la app, se eliminan.</p>
+<p>Ninguno de estos datos te identifica ni permite identificarte.</p>
+<p>No enviamos ninguno de estos datos a servidores nuestros ni los sincronizamos con ninguna cuenta. (La divisa que tengas seleccionada sí forma parte de la consulta que la app hace a las fuentes públicas para pedir su cotización — es inevitable: hay que decir qué divisa se consulta.) Como todo vive en tu dispositivo, el plazo de conservación lo decides tú: los datos permanecen mientras la app esté instalada y se eliminan por completo al desinstalarla o al borrar los datos de la aplicación desde los ajustes de Android. No conservamos ninguna copia.</p>
 
 <h2>Fuentes de datos</h2>
-<p>La app se conecta únicamente a estos servicios públicos para obtener tasas de cambio. Todos los datos son de acceso libre y no incluyen información personal del usuario:</p>
+<p>La app se conecta únicamente a estos servicios públicos para obtener tasas de cambio e indicadores económicos. Todos los datos son de acceso libre y no incluyen información personal del usuario:</p>
 <ul>
   <li><a href="https://www.exchangerate-api.com" rel="noopener">Rates By Exchange Rate API</a> (<code>open.er-api.com</code>) — tasas globales con base en USD, actualizadas una vez al día.</li>
-  <li><a href="https://frankfurter.dev" rel="noopener"><code>frankfurter.dev</code></a> — API pública con tasas de referencia de decenas de bancos centrales: series históricas de ~150 divisas.</li>
+  <li><a href="https://frankfurter.dev" rel="noopener"><code>frankfurter.dev</code></a> — API pública con tasas de referencia de decenas de bancos centrales: series históricas de 156 divisas.</li>
+  <li><a href="https://mindicador.cl" rel="noopener"><code>mindicador.cl</code></a> — indicadores de Chile (UF, UTM, y la UTA derivada de ella), que republica los valores del Banco Central de Chile.</li>
+  <li><a href="https://www.bcra.gob.ar" rel="noopener">Banco Central de la República Argentina</a> (<code>api.bcra.gob.ar</code>) — UVA.</li>
+  <li><a href="https://www.dof.gob.mx" rel="noopener">Diario Oficial de la Federación</a> (<code>sidof.segob.gob.mx</code>, México) — UDI.</li>
+  <li><a href="https://www.banrep.gov.co" rel="noopener">Banco de la República</a> (<code>suameca.banrep.gov.co</code>, Colombia) — UVR.</li>
+  <li><a href="https://www.bcb.gob.bo" rel="noopener">Banco Central de Bolivia</a> (<code>bcb.gob.bo</code>) — UFV.</li>
+  <li><a href="https://www.coingecko.com" rel="noopener">CoinGecko</a> (<code>api.coingecko.com</code>) — precios de criptomonedas (BTC, ETH, USDT, XRP y SOL) y sus series históricas.</li>
+  <li><a href="https://coinpaprika.com" rel="noopener">CoinPaprika</a> (<code>api.coinpaprika.com</code>) — fuente de respaldo de precios de criptomonedas, se consulta solo si la anterior no responde.</li>
 </ul>
 <p>No enviamos información personal a estos servicios (como en cualquier conexión a internet, el proveedor recibe la dirección IP del dispositivo para responder la solicitud). Las tasas mostradas son las publicadas por cada fuente y pueden no coincidir con las cotizaciones comerciales vigentes en el momento de la consulta.</p>
+<p>Para algunas divisas —hoy el bolívar venezolano (VES)— la cotización publicada por estas fuentes es la <strong>tasa regulada por la autoridad monetaria</strong>, que puede diferir de forma importante de la del mercado paralelo.</p>
+<p>Las fuentes tienen frecuencias de publicación distintas: las <strong>divisas</strong> se publican una vez al día, los <strong>indicadores económicos</strong> son un calendario que cada organismo fija por anticipado, y las <strong>criptomonedas</strong> cotizan de forma continua. Para los indicadores, la app descarga y conserva el calendario ya publicado, de modo que puede mostrar el valor correcto de cada día aunque el dispositivo esté sin conexión.</p>
+<p>Puedes consultar en cualquier momento de dónde viene cada dato y de cuándo es, dentro de la app, en <strong>Ajustes → Estado de los datos</strong>.</p>
+
+<h2>Responsable del tratamiento</h2>
+<p>El responsable de esta app es <strong>G45C/D3V</strong>, con domicilio en Chile. Canal de contacto para cualquier asunto relativo a datos personales: <a href="mailto:g45c.dev@gmail.com"><code>g45c.dev@gmail.com</code></a>.</p>
+<p>Esta política se rige por la <strong>Ley N.º 21.719</strong>, que regula la protección y el tratamiento de los datos personales en Chile y entra en vigencia el <strong>1 de diciembre de 2026</strong>, creando la Agencia de Protección de Datos Personales.</p>
+
+<h2>Base legal del tratamiento</h2>
+<p>El único dato personal que la app llega a tocar es tu <strong>ubicación aproximada</strong>, y solo si la autorizas. La base de licitud es tu <strong>consentimiento</strong>, que otorgas al aceptar el permiso del sistema y que puedes <strong>revocar cuando quieras</strong> —desde los ajustes de Android o desde el interruptor de Geolocalización dentro de la app— sin que la app deje de funcionar.</p>
+<p>Las preferencias descritas más arriba se guardan solo en tu dispositivo y no constituyen una base de datos bajo nuestro control. Tu <strong>dirección IP</strong> no la recolectamos ni registramos: es visible para los proveedores de datos por el funcionamiento propio de cualquier conexión a internet, igual que al abrir una página web.</p>
+<p>No elaboramos perfiles, no tomamos decisiones automatizadas, no tratamos datos sensibles ni datos de niñas, niños y adolescentes.</p>
+
+<h2>Tus derechos</h2>
+<p>La Ley N.º 21.719 te reconoce los derechos de <strong>acceso, rectificación, supresión, oposición, portabilidad y bloqueo</strong> sobre tus datos personales.</p>
+<p>Por cómo está construida la app, <strong>los ejerces directamente y sin intermediarios</strong>: todo está en tu teléfono, así que puedes consultarlo, modificarlo, revocar el permiso de ubicación o borrarlo por completo desde la app o desde los ajustes de Android. No tenemos ninguna base de datos con información tuya sobre la cual podamos actuar en tu nombre.</p>
+<p>Si aun así quieres ejercer un derecho, consultar o reclamar, escribe a <a href="mailto:g45c.dev@gmail.com"><code>g45c.dev@gmail.com</code></a>; responderemos dentro de los plazos legales. También puedes reclamar ante la <strong>Agencia de Protección de Datos Personales</strong> una vez que entre en funcionamiento.</p>
+
+<h2>Seguridad, vulneraciones y transferencias</h2>
+<p>Todas las conexiones usan HTTPS y el tráfico sin cifrar está bloqueado por configuración de la aplicación. Al no haber servidores propios ni cuentas, no existe un repositorio central de datos personales que pueda ser vulnerado. Si aun así ocurriera una vulneración que afecte datos personales, la notificaríamos a la Agencia y a las personas afectadas sin dilación indebida.</p>
+<p>Los proveedores de datos listados arriba están alojados fuera de Chile, pero <strong>no les enviamos datos personales</strong>: son consultas anónimas de tipos de cambio, sin identificador de usuario ni de dispositivo.</p>
+<p>La única excepción, y por eso se explica aparte, es la <strong>geocodificación del sistema operativo</strong> descrita más arriba: si autorizas la ubicación, tu coordenada aproximada pasa por ese servicio del sistema —de Google en la mayoría de los teléfonos— para traducirla a un país. Ocurre una sola vez, en memoria, y no la guardamos ni la asociamos a ti.</p>
 
 <h2>Niños</h2>
 <p>La app es apta para todas las edades (PEGI 3 / Everyone) y no recolecta información de menores.</p>
